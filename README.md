@@ -79,3 +79,6 @@ npm start
 
 **¡Listo! Ahora puedes ejecutar y probar el simulador en tu máquina local.**  
 Si tienes preguntas, contacta con el equipo de desarrollo. 😁
+
+## 📷 **Captura de pantalla**
+![](https://github.com/JDavidex/shuffle-store/blob/main/(1).png)
