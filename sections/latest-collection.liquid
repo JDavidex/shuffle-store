@@ -1,0 +1,35 @@
+<section class="latest-collection" id="collections" role="region" aria-labelledby="latest-collection-title">
+  <div class="latest-collection__container">
+    <h2 id="latest-collection-title" class="latest-collection__title">
+      <span class="divider" aria-hidden="true">✦</span>
+      {{ settings['latest-collection'].settings.title }}
+      <span class="divider" aria-hidden="true">✦</span>
+    </h2>
+    <div class="latest-collection__grid">
+      {% for collection in collections %}
+        {% assign collection_date = collection.created_at | date: '%Y-%m-%d' %}
+        {% if collection_date >= '2025-01-01' %}
+          <div class="latest-collection__item">
+            <a href="{{ collection.url }}" class="latest-collection__link">
+              <img
+                src="../assets/{{ collection.image | file_url }}"
+                alt="{{ collection.title }}"
+                class="latest-collection__image"
+              >
+              <div class="latest-collection__overlay">
+                <p class="latest-collection__name">{{ collection.title }}</p>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="latest-collection__banner">
+      <img
+        src="../assets/{{ settings['latest-collection'].settings.background_image | file_url }}"
+        alt="Latest Collection Banner"
+        class="latest-collection__banner-image"
+      >
+    </div>
+  </div>
+</section>

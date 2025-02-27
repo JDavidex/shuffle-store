@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "top-bar": {
+      "type": "top-bar",
+      "settings": {
+        "marquee_text": "FREE SHIPPING FOR ORDERS OVER $100"
+      }
+    },
+    "hero-banner": {
+      "type": "hero-banner",
+      "settings": {
+        "button_text": "View the collection",
+        "button_link": "/collections/all",
+        "marquee_text": "SHUFFLE ESSENTIALS",
+        "background_image": "hero_banner_img.avif"
+      }
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "button_text": "View All"
+      }
+    },
+    "latest-collection": {
+      "type": "latest-collection",
+      "settings": {
+        "title": "Latest Collection",
+        "background_image": "homepage_bottom_banner.avif"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "logo_text": "STORE",
+        "links": [
+          { "label": "Home", "url": "/" },
+          { "label": "Cart", "url": "/cart" },
+          { "label": "All Products", "url": "/collections/all" },
+          { "label": "Collections", "url": "/collections" },
+          { "label": "Refund Policy", "url": "/refund-policy" },
+          { "label": "Privacy Policy", "url": "/privacy-policy" },
+          { "label": "Terms of Service", "url": "/terms-of-service" }
+        ]
+      }
+    }
+  }
+}

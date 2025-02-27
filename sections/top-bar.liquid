@@ -1,0 +1,12 @@
+<div class="top-bar">
+  <div class="top-bar__marquee">
+    <div class="top-bar__overlay top-bar__overlay--left" aria-hidden="true"></div>
+    <div class="top-bar__content">
+      {% for i in (1..14) %}
+        <span class="top-bar__text">{{ settings['top-bar'].settings.marquee_text }}</span>
+        <span class="top-bar__icon" aria-hidden="true">✦</span>
+      {% endfor %}
+    </div>
+    <div class="top-bar__overlay top-bar__overlay--right" aria-hidden="true"></div>
+  </div>
+</div>

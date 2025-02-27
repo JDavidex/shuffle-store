@@ -1,0 +1,27 @@
+<section
+  class="hero-banner"
+  role="region"
+  aria-label="Hero banner"
+  style="background-image: url('/assets/{{ settings.hero-banner.settings.background_image }}');"
+>
+  <div class="hero-banner__content">
+    <a
+      href="{{ settings.hero-banner.settings.button_link }}"
+      class="btn btn--primary hero-banner__button"
+      role="button"
+    >
+      {{ settings['hero-banner'].settings.button_text }}
+    </a>
+  </div>
+</section>
+
+<div class="hero-banner__marquee" role="marquee" aria-label="Scrolling text banner">
+  <div class="hero-banner__overlay hero-banner__overlay--left" aria-hidden="true"></div>
+  <div class="marquee__content" id="products" role="list">
+    {% for i in (1..10) %}
+      <span>{{ settings['hero-banner'].settings.marquee_text }}</span>
+      <span class="marquee__divider">✦</span>
+    {% endfor %}
+  </div>
+  <div class="hero-banner__overlay hero-banner__overlay--right" aria-hidden="true"></div>
+</div>

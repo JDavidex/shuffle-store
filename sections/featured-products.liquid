@@ -1,0 +1,57 @@
+<section class="featured-products" role="region" aria-label="Featured products">
+  <div class="featured-products__list" role="list">
+    {% for product in products limit: 10 %}
+      <div
+        class="featured-products__item {% if forloop.index > 4 %} featured-products__item--hidden {% endif %}"
+        role="listitem"
+      >
+        {% render 'product-card', product: product %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Botón "Ver todos" (solo desktop) -->
+  <button class="btn btn--primary featured-products__button desktop-only" aria-label="View all">
+    {{ settings['featured-products'].settings.button_text }}
+  </button>
+
+  <!-- Indicador de scroll (solo mobile) -->
+  <div class="scroll-indicator mobile-only" aria-hidden="true">
+    <div class="scroll-indicator__bar">
+      <div class="scroll-indicator__progress"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const isMobile = window.innerWidth <= 768;
+    const $productList = document.querySelector('.featured-products__list');
+    const $progressBar = document.querySelector('.scroll-indicator__progress');
+    const $viewAllButton = document.querySelector('.featured-products__button');
+
+    if (isMobile) {
+      // Funcionalidad de carrusel en mobile
+      $productList.addEventListener('scroll', function () {
+        const scrollWidth = $productList.scrollWidth - $productList.clientWidth;
+        const scrolled = ($productList.scrollLeft / scrollWidth) * 100;
+        $progressBar.style.width = `${scrolled}%`;
+      });
+    } else {
+      // Funcionalidad de "ver más" en desktop con animación
+      $viewAllButton?.addEventListener('click', function () {
+        const $hiddenItems = document.querySelectorAll('.featured-products__item--hidden');
+
+        $hiddenItems.forEach(($item, index) => {
+          setTimeout(() => {
+            $item.classList.remove('featured-products__item--hidden');
+            $item.classList.add('featured-products__item--fade-in');
+          }, index * 200); // Retraso de 200ms entre cada producto
+        });
+
+        // Ocultar el botón
+        $viewAllButton.style.display = 'none';
+      });
+    }
+  });
+</script>
